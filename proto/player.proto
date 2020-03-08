@@ -1,0 +1,11 @@
+syntax = "proto3";
+package game;
+
+option go_package = "gen/pb";
+
+import "color.proto";
+
+message Player {
+	int32 id = 1;
+	Color color = 2;
+}

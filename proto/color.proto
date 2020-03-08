@@ -1,0 +1,12 @@
+syntax = "proto3";
+package game;
+
+option go_package = "gen/pb";
+
+enum Color {
+	UNKNOWN = 0;
+	EMPTY = 1;
+	BLACK = 2;
+	WHITE = 3;
+	WALL = 4;
+}
