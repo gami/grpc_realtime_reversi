@@ -279,9 +279,11 @@ func (r *Reversi) recieve(ctx context.Context, stream pb.GameService_PlayClient)
 			r.finished = true
 
 			// 勝敗を表示する
-			winner := build.Player(res.GetFinished().Winner)
+			winner := build.Color(res.GetFinished().Winner)
 			fmt.Println("")
-			if winner.Color == r.me.Color {
+			if winner == game.None {
+				fmt.Println("Draw!")
+			} else if winner == r.me.Color {
 				fmt.Println("You Win!")
 			} else {
 				fmt.Println("You Lose!")

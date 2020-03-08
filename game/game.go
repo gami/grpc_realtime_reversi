@@ -50,6 +50,18 @@ func (g *Game) IsGameOver() bool {
 	return true
 }
 
+//　勝者の色を返します。引き分けの場合はNoneを返します
+func (g *Game) Winner() Color {
+	black := g.Board.Score(Black)
+	white := g.Board.Score(White)
+	if black == white {
+		return None
+	} else if black > white {
+		return Black
+	}
+	return White
+}
+
 // 盤面を出力します
 func (g *Game) Display(me Color) {
 	fmt.Println("")

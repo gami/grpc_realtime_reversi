@@ -133,7 +133,7 @@ func (h *GameHandler) move(roomID int32, x int32, y int32, p *game.Player) error
 				&pb.PlayResponse{
 					Event: &pb.PlayResponse_Finished{
 						Finished: &pb.PlayResponse_FinishedEvent{
-							Winner: build.PBPlayer(p),
+							Winner: build.PBColor(g.Winner()),
 							Board:  build.PBBoard(g.Board),
 						},
 					},
