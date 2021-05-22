@@ -20,7 +20,7 @@ message JoinRoomResponse {
 
 	Room room = 1;
 	Player me = 2;
-	Status status = 4;
+	Status status = 3;
 }
 
 message Room{

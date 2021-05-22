@@ -129,7 +129,7 @@ func (h *GameHandler) move(roomID int32, x int32, y int32, p *game.Player) error
 
 		if finished {
 			// ゲーム終了通知する
-			s.Send(
+			err := s.Send(
 				&pb.PlayResponse{
 					Event: &pb.PlayResponse_Finished{
 						Finished: &pb.PlayResponse_FinishedEvent{
@@ -139,6 +139,9 @@ func (h *GameHandler) move(roomID int32, x int32, y int32, p *game.Player) error
 					},
 				},
 			)
+			if err != nil {
+				return err
+			}
 		}
 	}
 
